@@ -1,6 +1,4 @@
 from PIL import Image
-import os
-import time
 
 new_image=Image.new(mode = "RGB", size = (600, 500), color = (255,255,255))
 counter=1
