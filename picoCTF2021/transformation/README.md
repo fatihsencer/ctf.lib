@@ -6,26 +6,39 @@ By [fatihsencer](https://github.com/fatihsencer)
 I wonder what this really is... enc ''.join([chr((ord(flag[i]) << 8) + ord(flag[i + 1])) for i in range(0, len(flag), 2)])
 
 ## Analysis
-We got a crypted text. When we look at the description we see how it is encrypted. First index converting to 'ascii value' and do bitwise operation (2^8). After that, value of the next index ascii value add first value.
+We got a crypted text. When we look at the description we see how it is encrypted. First index is do bitwise operation (2^8) after convert to 'ascii value'. After that, ascii value of the next index add to first value. This encryption is applied every 2 indexes.
 
 ## Solution
-We got a crypted text. When we look at the description we see how it is encrypted. Firstly, first index converting to 'ascii value' and bitwise operation.
-First thing, i tried to do a "strings" on the file to see if the flag in the raw data.
+Firstly, we get the ascii value of the letters in the file. 
+
 ```
-strings chall.png | grep -i shaktictf
+crypted = [28777, 25455, 17236, 18043, 12598, 24418, 26996, 29535, 26990, 29556, 13108, 25695, 28518, 24376, 24368, SECRET, SECRET, SECRET, SECRET]
 ```
-But their wasn't anything.
-Second try, i looked for embedded files in the image
+
+Now we can reverse bitwise operation. 
+
 ```
-binwalk chall.png
-DECIMAL       HEXADECIMAL     DESCRIPTION
---------------------------------------------------------------------------------
-0             0x0             PNG image, 264 x 191, 8-bit colormap, non-interlaced
-48            0x30            PNG image, 1200 x 1200, 8-bit/color RGBA, non-interlaced
-89            0x59            Zlib compressed data, default compression
+for x in range(0,len(crypted)):
+
+    print(chr(int(crypted[x]/(2**8))),end='')
 ```
-I found this interresting second image (the 1200*1200 one) in the file. So i extreacted it : 
+-> pcCF1_isis3do__SECRET
+
+We found! No,wait.. Something seems wrong. 0,2,4,6... where is odd indexes?
+
+Odd index is hidden in even index. Let's find odd index.
+
+Step 1 -> bitwise operation to ascii value of first index ('p'). 
+
 ```
-binwalk -D=".*" chall.png
+asci_value = ord(chr(int(crypted[x]/(2**8)))
 ```
-And when i looked at the image, the flag was their : shakictf{Y0u_4R3_aM4z1nG!!!!}
+Step 2 -> subtract ascii_value from first crypted index. After, convert char.
+
+```
+chr(crpyted[0]-ascii_value)
+```
+
+We get flag.
+
+*Flag is: picoCTF{16_bits_inst34d_of_8_SECRET}*
