@@ -27,7 +27,7 @@ for x in range(0,len(crypted)):
 
 We found! No,wait.. Something seems wrong. 0,2,4,6... where is odd indexes?
 
-Odd index is hidden in even index. Let's find odd index.<br /><br />
+Odd index is hidden in even index. Let's find odd index.<br /><br /><br />
 
 Step 1 -> bitwise operation to ascii value of first index ('p'). 
 
