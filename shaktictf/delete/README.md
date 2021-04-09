@@ -1,0 +1,1 @@
+binwalk -D=".*" chall.png
