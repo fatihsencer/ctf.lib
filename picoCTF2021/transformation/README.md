@@ -22,7 +22,7 @@ for x in range(0,len(crypted)):
 
     print(chr(int(crypted[x]/(2**8))),end='')
     
--> -> pcCF1_isis3do__SECRET
+-> pcCF1_isis3do__SECRET
 ```
 
 We found! No,wait.. Something seems wrong. 0,2,4,6... where is odd indexes?
