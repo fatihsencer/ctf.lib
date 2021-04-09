@@ -29,6 +29,8 @@ We found! No,wait.. Something seems wrong. 0,2,4,6... where is odd indexes?
 
 Odd index is hidden in even index. Let's find odd index.
 
+
+
 Step 1 -> bitwise operation to ascii value of first index ('p'). 
 
 ```
