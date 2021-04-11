@@ -25,7 +25,7 @@ for x in range(0,len(crypted)):
 -> pcCF1_isis3do__SECRET
 ```
 
-Kısmen şireyi buldum fakat eksik olan harfler vardı. Bunun sebebi adımların 2şer 2şer yapılıp 2. indexin 1. index'e eklenmesi.
+Kısmen şireyi buldum fakat eksik olan harfler vardı. Bunun sebebi adımların 2şer yapılıp 2. indexin 1. index'e eklenmesi.
 
 Eklenen değerleri, bulduğumuz harfi tekrar bitsel işleme sokup, ilk başta şifreli dosyanın içerisinden elde ettiğimiz ascii değerlerinden çıkartıp  eklenen harfin ascii değerini buldum.
 
