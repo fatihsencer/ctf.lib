@@ -2,20 +2,20 @@
 
 By [fatihsencer](https://github.com/fatihsencer)
 
-## Description
+## Açıklama
 I wonder what this really is... enc ''.join([chr((ord(flag[i]) << 8) + ord(flag[i + 1])) for i in range(0, len(flag), 2)])
 
-## Analysis
-We got a crypted text. When we look at the description we see how it is encrypted. First index is do bitwise operation (2^8) after convert to 'ascii value'. After that, ascii value of the next index add to first value. This encryption is applied every 2 indexes.
+## Analiz
+Şifrelenmiş bir adet dosyamız var. Açıklamaya baktığımızda nasıl şifrelendiğini görebiliriz. İlk indeximizin ascii değeri bitsel işleme sokulmuş ( << 2^8 ). Ardından bu değere sonraki index'in ascii değeri eklenmiş. Bu işlem her 2 adımda bir tekrarlanmış.
 
-## Solution
-Firstly, we get the ascii value of the letters in the file. 
+## Çözüm
+Öncelikle bize verilen dosyanın içindeki karakterlerin ascii değerini aldım. 
 
 ```
 crypted = [28777, 25455, 17236, 18043, 12598, 24418, 26996, 29535, 26990, 29556, 13108, 25695, 28518, 24376, 24368, SECRET, SECRET, SECRET, SECRET]
 ```
 
-Now we can reverse bitwise operation. 
+Bulduğum ascii değerlere yapılan işlemlerin tersini yaptım. ( >> 2^8 ) 
 
 ```
 for x in range(0,len(crypted)):
@@ -25,21 +25,23 @@ for x in range(0,len(crypted)):
 -> pcCF1_isis3do__SECRET
 ```
 
-We found! No,wait.. Something seems wrong. 0,2,4,6... where is odd indexes?
+Kısmen şireyi buldum fakat eksik olan harfler vardı. Bunun sebebi adımların 2şer 2şer yapılıp 2. indexin 1. index'e eklenmesi.
 
-Odd index is hidden in even index. Let's find odd index.<br /><br /><br />
+Eklenen değerleri, bulduğumuz harfi tekrar bitsel işleme sokup, ilk başta şifreli dosyanın içerisinden elde ettiğimiz ascii değerlerinden çıkartıp  eklenen harfin ascii değerini buldum.
 
-Step 1 -> bitwise operation to ascii value of first index ('p'). 
-
-```
-asci_value = ord(chr(int(crypted[x]/(2**8)))
-```
-Step 2 -> subtract ascii_value from first crypted index. After, convert char.
+p üzerinden örnek vericek olursak 
 
 ```
-chr(crpyted[0]-ascii_value)
+ord('p')*(2**8) = 28672
+
+crypted[0] = 28777
+
+28777 - 28672 = 105 
+
+chr(105) = i
+
 ```
 
-We get flag.
+Bunu bütün değerlere uyguladığımda bayrağı buldum.
 
-*Flag is: picoCTF{16_bits_inst34d_of_8_SECRET}*
+*Flag: picoCTF{16_bits_inst34d_of_8_SECRET}*
