@@ -1,1 +1,1 @@
-bash ls
+ls
