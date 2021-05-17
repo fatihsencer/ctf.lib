@@ -1,10 +1,8 @@
-#Bad Apple
+# Bad Apple
 
 Someone stumbled upon this file in a secure server. What could it mean?
 
 ----
-
-## Jb3lp0is
 
 Sarkiyi dinlerken bi kisminda bozukluk oldugunu goruyoruz.
 
