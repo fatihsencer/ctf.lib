@@ -22,4 +22,18 @@ r.sendline(str(number1*number2))
 
 Bize ikinci challange'i veriyor. Bu challange'ta bize flag'in sifrelenmis halini veriyor.
 
-Verilen python kodunda nasil sifrelendigini goruyoruz. Ayni sekilde decode ederek flag'e ulasiyoruz.
+Verilen python kodunda nasil sifrelendigini goruyoruz. Ayni sekilde decode flag'e ulasiyoruz.
+
+```python
+
+key = str(int(time())).zfill(16).encode("utf-8")
+
+r.recvuntil('be yours!\n')
+
+encrypted = unhexlify(r.recvline().strip())
+cipher = DES3.new(key, DES3.MODE_CFB, b"00000000")
+decrypted = cipher.decrypt(encrypted)
+
+r.sendline(decrypted)
+
+```
