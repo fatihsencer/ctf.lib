@@ -1,0 +1,5 @@
+CanYouReadIt - {HI2021-01504f3b8b252f5619c94fd65dc52}
+H3X - {HI2021-7a56be269cb3adde7ed81b4d00d50d}
+WhatIsPassword - {HI2021-fcc637036c3c11f699c22c243dd82a}
+NT or LM - {HI2021-aad3b435b51404eeaad3b435b51404ee}
+Arcfour - {HI2021-62f170fb07fdbb79ceb7147101406eb8}
