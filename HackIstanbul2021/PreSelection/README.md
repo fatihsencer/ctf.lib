@@ -1,4 +1,6 @@
 HackIstanbul 2021 PreSelection
+<h3>
+https://fatihsencer.com/index.php/2021/07/31/hackistanbul2021preselection/</h3>
 
 ---
 
@@ -8,4 +10,3 @@ Merhaba Arkadaşlar,
 Bora Tan "Atalante" Demir ile BoronThrowers olarak katıldığımız yarışmada bu puan ile 30-35. olduk.
 Yarışma esnasında çözemeyen veya yarışma dışı soruları merak edip çözmek isteyen arkadaşlar için yapabildiklerimi çözümleri paylaştım. 
 
-https://fatihsencer.com/index.php/2021/07/31/hackistanbul2021preselection/
